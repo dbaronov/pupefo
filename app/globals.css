@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+main,
+footer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.product-card {
+  min-width: 200px;
+  width: calc(33% - 42px);
+  text-align: center;
+}
