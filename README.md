@@ -25,8 +25,8 @@ This is a simplified Product Listing & Details Application built using Next.js 1
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd nextjs-product-app
+   git clone https://github.com/dbaronov/pupefo
+   cd pupefo
    ```
 
 2. Install dependencies:
