@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { Suspense, memo } from 'react';
 import { LoadingSkeleton } from './LoadingSkeleton';
 import { Product } from '../types/product';
 import ProductCard from './ProductCard';
@@ -35,21 +35,23 @@ const ProductList = ({ products, isLoading = false }: ProductListProps) => {
   // Loading state
   if (isLoading) {
     return (
-      <Container>
+      <Suspense fallback={<LoadingSkeleton />}>
+        <Container>
         {Array.from({ length: products.length }).map((_, i) => (
           <LoadingSkeleton key={i} />
         ))}
-      </Container>
+        </Container>
+      </Suspense>
     );
   }
 
   // Products list
   return (
-    <Container>
-      {products.map(product => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </Container>
+      <Container>
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </Container>
   );
 };
 
