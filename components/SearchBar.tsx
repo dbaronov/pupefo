@@ -24,6 +24,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
       </label>
       <input
         type="text"
+        id="search"
         placeholder="Search products..."
         value={value}
         onChange={e => setValue(e.target.value)}

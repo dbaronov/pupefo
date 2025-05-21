@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Product } from '../types/product';
-import { LoadingSkeleton } from './LoadingSkeleton';
+import LoadingSkeleton from './LoadingSkeleton';
 
 interface ProductDetailProps {
   product: Product | null;

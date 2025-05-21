@@ -1,10 +1,8 @@
-"use client"
-
 import { useEffect, useState } from 'react';
 import { fetchProducts } from '../utils/fetchProducts';
 import { Product } from '../types/product';
 
-export const useProducts = () => {
+const useProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

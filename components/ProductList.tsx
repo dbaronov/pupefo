@@ -1,5 +1,5 @@
 import React, { Suspense, memo } from 'react';
-import { LoadingSkeleton } from './LoadingSkeleton';
+import LoadingSkeleton from './LoadingSkeleton';
 import { Product } from '../types/product';
 import ProductCard from './ProductCard';
 

@@ -9,7 +9,7 @@ interface FilterProps {
 const Filter = ({ products, onFilter }: FilterProps) => {
   const categories = Array.from(new Set(products.map(p => p.category)));
   return (
-    <select onChange={e => onFilter(e.target.value)} style={{ marginBottom: 16 }}>
+    <select id="categories" onChange={e => onFilter(e.target.value)} style={{ marginBottom: 16 }}>
       <option value="all">All Categories</option>
       {categories.map(category => (
         <option key={category} value={category}>{category}</option>
