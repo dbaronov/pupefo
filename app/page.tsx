@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ProductList from '../components/ProductList';
-import { useProducts } from '../hooks/useProducts';
+import useProducts from '../hooks/useProducts';
 import { redirect } from 'next/navigation';
 
 export const HomePage = () => {
