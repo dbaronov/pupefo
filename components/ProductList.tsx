@@ -5,7 +5,6 @@ import ProductCard from './ProductCard';
 
 interface ProductListProps {
   products: Product[];
-  isLoading?: boolean;
 }
 
 // Common styles extracted to avoid repetition
@@ -16,42 +15,31 @@ const containerStyle = (productCount: number) => ({
   justifyContent: productCount < 3 ? "flex-start" : "space-between"
 });
 
-const ProductList = ({ products, isLoading = false }: ProductListProps) => {
+const ProductList = ({ products }: ProductListProps) => {
   // Common container element that maintains consistent styling
   const Container = ({ children }: { children: React.ReactNode }) => (
     <div style={containerStyle(products.length)}>{children}</div>
   );
 
   // Empty state
-  if (!products.length && !isLoading) {
+  if (!products.length) {
     return (
       <div className="empty-state">
         <h3>No products found</h3>
-        <p>Try adjusting your search or filters</p>
+        <p>Chech your network connection or try adjusting your search or filters</p>
       </div>
-    );
-  }
-
-  // Loading state
-  if (isLoading) {
-    return (
-      <Suspense fallback={<LoadingSkeleton />}>
-        <Container>
-        {Array.from({ length: products.length }).map((_, i) => (
-          <LoadingSkeleton key={i} />
-        ))}
-        </Container>
-      </Suspense>
     );
   }
 
   // Products list
   return (
-      <Container>
-        {products.map(product => (
+    <Container>
+      {products.map((product) => (
+        <Suspense key={product.id} fallback={<LoadingSkeleton />}>
           <ProductCard key={product.id} product={product} />
-        ))}
-      </Container>
+        </Suspense>
+      ))}
+    </Container>
   );
 };
 

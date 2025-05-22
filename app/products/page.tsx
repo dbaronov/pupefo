@@ -41,13 +41,14 @@ const ProductsPage = () => {
       <SearchBar onSearch={setQuery} />
       <Filter products={products} onFilter={setCategory} />
 
-      <div style={{ marginTop: 20 }}>
-        <p>Showing {startIdx + 1} to {Math.min(endIdx, filtered.length)} of {filtered.length} products</p>
-      </div>
+      { filtered.length > 0 && <div style={{ marginTop: 20 }}>
+          <p>Showing {startIdx + 1} to {Math.min(endIdx, filtered.length)} of {filtered.length} products</p>
+        </div>
+    }
 
       <ProductList products={paginated} />
       
-      <div style={{ marginTop: 20 }}>
+      { filtered.length > 0 && <div className='pagination' style={{ marginTop: 20 }}>
         <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} style={{
             marginBottom: '16px',
             padding: '8px 16px',
@@ -58,7 +59,9 @@ const ProductsPage = () => {
           }}>
           Previous
         </button>
+
         <span style={{ margin: '0 10px' }}>Page {page} of {totalPages}</span>
+
         <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} style={{
             marginBottom: '16px',
             padding: '8px 16px',
@@ -69,8 +72,8 @@ const ProductsPage = () => {
           }}>
           Next
         </button>
-      </div>
-    </div>
+      </div> }
+    </div> 
   );
 };
 
